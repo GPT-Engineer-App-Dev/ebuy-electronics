@@ -1,22 +1,29 @@
-```jsx
 import React from 'react';
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ product }) => {
   const { image, name, price } = product;
 
+  const handleAddToCart = () => {
+    console.log(`${name} added to cart`);
+    // Implement actual add to cart functionality here
+  };
+
   return (
-    <div className="product-card">
-      <img src={image} alt={name} className="product-image" />
-      <h2 className="product-name">{name}</h2>
-      <p className="product-price">${price.toFixed(2)}</p>
-      <button className="add-to-cart-button" onClick={() => onAddToCart(product)}>
-        Add to Cart
-      </button>
-    </div>
+    <Card className="overflow-hidden">
+      <CardContent className="p-0">
+        <img src={image} alt={name} className="w-full h-48 object-cover" />
+        <div className="p-4">
+          <h3 className="text-lg font-semibold">{name}</h3>
+          <p className="text-sm text-gray-600">${price.toFixed(2)}</p>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <Button onClick={handleAddToCart} className="w-full">Add to Cart</Button>
+      </CardFooter>
+    </Card>
   );
 };
 
 export default ProductCard;
-```
-
-Note: This implementation assumes that the `product` prop is an object with `image`, `name`, and `price` properties, and that `onAddToCart` is a function passed as a prop to handle adding the product to the cart.

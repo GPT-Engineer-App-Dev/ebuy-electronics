@@ -1,71 +1,36 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { sampleProducts } from '@/data/sampleProducts';
+import { Button } from "@/components/ui/button";
 
-const ProductDetail = ({ product }) => {
+const ProductDetail = () => {
+  const { id } = useParams();
+  const product = sampleProducts.find(p => p.id === parseInt(id));
+
   if (!product) {
-    return <div>Loading...</div>;
+    return <div>Product not found</div>;
   }
 
-  const { image, name, price, description } = product;
-
   const handleAddToCart = () => {
-    // Logic to add the product to the cart
-    console.log(`${name} added to cart`);
+    console.log(`${product.name} added to cart`);
+    // Implement actual add to cart functionality here
   };
 
   return (
-    <div className="product-detail">
-      <img src={image} alt={name} className="product-image" />
-      <h1 className="product-name">{name}</h1>
-      <p className="product-price">${price.toFixed(2)}</p>
-      <p className="product-description">{description}</p>
-      <button onClick={handleAddToCart} className="add-to-cart-button">
-        Add to Cart
-      </button>
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="md:w-1/2">
+          <img src={product.image} alt={product.name} className="w-full h-auto object-cover rounded-lg" />
+        </div>
+        <div className="md:w-1/2">
+          <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
+          <p className="text-2xl font-semibold mb-4">${product.price.toFixed(2)}</p>
+          <p className="mb-6">{product.description}</p>
+          <Button onClick={handleAddToCart} size="lg">Add to Cart</Button>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default ProductDetail;
-```
-
-```css
-/* Assuming you have a CSS file to style the component */
-.product-detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.product-image {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-}
-
-.product-name {
-  font-size: 2em;
-  margin: 20px 0;
-}
-
-.product-price {
-  font-size: 1.5em;
-  color: #b12704;
-}
-
-.product-description {
-  font-size: 1em;
-  margin: 20px 0;
-}
-
-.add-to-cart-button {
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #ff9900;
-  border: none;
-  cursor: pointer;
-}
-
-.add-to-cart-button:hover {
-  background-color: #e68a00;
-}

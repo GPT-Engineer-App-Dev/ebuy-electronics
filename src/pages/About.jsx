@@ -2,25 +2,29 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div>
-      <h1>About Our Company</h1>
-      <section>
-        <h2>Company</h2>
-        <p>
-          Our company has been at the forefront of innovation for over a decade, providing top-notch solutions to our clients worldwide. We pride ourselves on our commitment to excellence and our ability to adapt to the ever-changing market demands.
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">About Our Company</h1>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
+        <p className="mb-4">
+          ElectroShop was founded with a vision to provide high-quality electronic products to tech enthusiasts and everyday consumers alike. Since our inception, we've been committed to offering the latest and greatest in technology, all while ensuring an exceptional shopping experience for our customers.
+        </p>
+      </section>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
+        <p className="mb-4">
+          Our mission is to empower people through technology. We strive to make cutting-edge electronics accessible to everyone, providing expert advice and support to help our customers make informed decisions about their purchases.
         </p>
       </section>
       <section>
-        <h2>Mission</h2>
-        <p>
-          Our mission is to empower businesses through innovative technology and unparalleled service. We strive to create value for our clients by delivering solutions that drive efficiency, productivity, and growth.
-        </p>
-      </section>
-      <section>
-        <h2>Values</h2>
-        <p>
-          Integrity, innovation, and customer satisfaction are at the core of our values. We believe in building long-term relationships with our clients based on trust and mutual respect. Our team is dedicated to continuous improvement and excellence in everything we do.
-        </p>
+        <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
+        <ul className="list-disc pl-6">
+          <li>Customer Satisfaction: We put our customers first in everything we do.</li>
+          <li>Quality: We only offer products that meet our high standards of quality and performance.</li>
+          <li>Innovation: We stay at the forefront of technological advancements.</li>
+          <li>Integrity: We conduct our business with honesty and transparency.</li>
+          <li>Sustainability: We're committed to reducing our environmental impact.</li>
+        </ul>
       </section>
     </div>
   );
