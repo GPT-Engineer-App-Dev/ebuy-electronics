@@ -5,6 +5,8 @@ export const sampleProducts = [
     price: 799.99,
     image: "/placeholder.svg",
     description: "The latest smartphone with advanced features and long battery life.",
+    category: "Electronics",
+    brand: "TechBrand",
   },
   {
     id: 2,
@@ -12,6 +14,8 @@ export const sampleProducts = [
     price: 1299.99,
     image: "/placeholder.svg",
     description: "Powerful laptop for professionals and creatives.",
+    category: "Computers",
+    brand: "ComputeMaster",
   },
   {
     id: 3,
@@ -19,6 +23,8 @@ export const sampleProducts = [
     price: 149.99,
     image: "/placeholder.svg",
     description: "High-quality wireless earbuds with noise cancellation.",
+    category: "Audio",
+    brand: "SoundWave",
   },
   {
     id: 4,
@@ -26,6 +32,8 @@ export const sampleProducts = [
     price: 899.99,
     image: "/placeholder.svg",
     description: "Large 4K smart TV with HDR and built-in streaming apps.",
+    category: "Home Entertainment",
+    brand: "ViewPlus",
   },
   {
     id: 5,
@@ -33,6 +41,8 @@ export const sampleProducts = [
     price: 499.99,
     image: "/placeholder.svg",
     description: "Next-gen gaming console for immersive gaming experiences.",
+    category: "Gaming",
+    brand: "GameStation",
   },
   {
     id: 6,
@@ -40,6 +50,8 @@ export const sampleProducts = [
     price: 249.99,
     image: "/placeholder.svg",
     description: "Feature-packed smartwatch with health tracking and notifications.",
+    category: "Wearables",
+    brand: "WristTech",
   },
   {
     id: 7,
@@ -47,6 +59,8 @@ export const sampleProducts = [
     price: 79.99,
     image: "/placeholder.svg",
     description: "Portable Bluetooth speaker with excellent sound quality.",
+    category: "Audio",
+    brand: "SoundWave",
   },
   {
     id: 8,
@@ -54,5 +68,7 @@ export const sampleProducts = [
     price: 699.99,
     image: "/placeholder.svg",
     description: "High-resolution digital camera for professional photography.",
+    category: "Photography",
+    brand: "PhotoPro",
   },
 ];
