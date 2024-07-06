@@ -1,71 +1,68 @@
-import React, { useState } from 'react';
-import { Select, Slider, Checkbox } from 'shadcn';
+import React from 'react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Label } from "@/components/ui/label";
+import { categories, brands } from '@/data/sampleProducts';
 
-const ProductFilter = ({ categories, brands, onFilterChange }) => {
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [priceRange, setPriceRange] = useState([0, 100]);
-  const [selectedBrands, setSelectedBrands] = useState([]);
-
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-    onFilterChange({ category: event.target.value, priceRange, brands: selectedBrands });
+const ProductFilter = ({ filters, onFilterChange }) => {
+  const handleCategoryChange = (value) => {
+    onFilterChange({ category: value });
   };
 
-  const handlePriceRangeChange = (value) => {
-    setPriceRange(value);
-    onFilterChange({ category: selectedCategory, priceRange: value, brands: selectedBrands });
+  const handlePriceChange = (value) => {
+    onFilterChange({ priceRange: value });
   };
 
-  const handleBrandChange = (event) => {
-    const brand = event.target.value;
-    const newSelectedBrands = event.target.checked
-      ? [...selectedBrands, brand]
-      : selectedBrands.filter((b) => b !== brand);
-    setSelectedBrands(newSelectedBrands);
-    onFilterChange({ category: selectedCategory, priceRange, brands: newSelectedBrands });
+  const handleBrandChange = (value) => {
+    onFilterChange({ brand: value });
   };
 
   return (
-    <div className="product-filter">
-      <div className="filter-category">
-        <label htmlFor="category">Category</label>
-        <Select id="category" value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="">All</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
+    <div className="space-y-6">
+      <div>
+        <Label htmlFor="category">Category</Label>
+        <Select onValueChange={handleCategoryChange} value={filters.category}>
+          <SelectTrigger id="category">
+            <SelectValue placeholder="Select category" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="">All Categories</SelectItem>
+            {categories.map((category) => (
+              <SelectItem key={category} value={category}>{category}</SelectItem>
+            ))}
+          </SelectContent>
         </Select>
       </div>
 
-      <div className="filter-price-range">
-        <label htmlFor="price-range">Price Range</label>
+      <div>
+        <Label>Price Range</Label>
         <Slider
-          id="price-range"
-          value={priceRange}
-          onChange={handlePriceRangeChange}
           min={0}
-          max={100}
-          step={1}
+          max={2000}
+          step={10}
+          value={filters.priceRange}
+          onValueChange={handlePriceChange}
+          className="mt-2"
         />
-        <div>
-          ${priceRange[0]} - ${priceRange[1]}
+        <div className="flex justify-between mt-2">
+          <span>${filters.priceRange[0]}</span>
+          <span>${filters.priceRange[1]}</span>
         </div>
       </div>
 
-      <div className="filter-brands">
-        <label>Brands</label>
-        {brands.map((brand) => (
-          <div key={brand}>
-            <Checkbox
-              value={brand}
-              checked={selectedBrands.includes(brand)}
-              onChange={handleBrandChange}
-            />
-            {brand}
-          </div>
-        ))}
+      <div>
+        <Label htmlFor="brand">Brand</Label>
+        <Select onValueChange={handleBrandChange} value={filters.brand}>
+          <SelectTrigger id="brand">
+            <SelectValue placeholder="Select brand" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="">All Brands</SelectItem>
+            {brands.map((brand) => (
+              <SelectItem key={brand} value={brand}>{brand}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
