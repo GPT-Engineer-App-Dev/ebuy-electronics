@@ -1,0 +1,58 @@
+export const sampleProducts = [
+  {
+    id: 1,
+    name: "Smartphone X",
+    price: 799.99,
+    image: "/placeholder.svg",
+    description: "The latest smartphone with advanced features and long battery life.",
+  },
+  {
+    id: 2,
+    name: "Laptop Pro",
+    price: 1299.99,
+    image: "/placeholder.svg",
+    description: "Powerful laptop for professionals and creatives.",
+  },
+  {
+    id: 3,
+    name: "Wireless Earbuds",
+    price: 149.99,
+    image: "/placeholder.svg",
+    description: "High-quality wireless earbuds with noise cancellation.",
+  },
+  {
+    id: 4,
+    name: "4K Smart TV",
+    price: 899.99,
+    image: "/placeholder.svg",
+    description: "Large 4K smart TV with HDR and built-in streaming apps.",
+  },
+  {
+    id: 5,
+    name: "Gaming Console",
+    price: 499.99,
+    image: "/placeholder.svg",
+    description: "Next-gen gaming console for immersive gaming experiences.",
+  },
+  {
+    id: 6,
+    name: "Smartwatch",
+    price: 249.99,
+    image: "/placeholder.svg",
+    description: "Feature-packed smartwatch with health tracking and notifications.",
+  },
+  {
+    id: 7,
+    name: "Bluetooth Speaker",
+    price: 79.99,
+    image: "/placeholder.svg",
+    description: "Portable Bluetooth speaker with excellent sound quality.",
+  },
+  {
+    id: 8,
+    name: "Digital Camera",
+    price: 699.99,
+    image: "/placeholder.svg",
+    description: "High-resolution digital camera for professional photography.",
+  },
+];
