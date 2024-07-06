@@ -11,7 +11,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { CircleUser, Menu, Package2 } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
-import { navItems } from "../App";
+import { navItems, userMenuItems } from "../App";
 
 const Layout = () => {
   return (
@@ -83,8 +83,12 @@ const UserMenu = () => (
     <DropdownMenuContent align="end">
       <DropdownMenuLabel>My Account</DropdownMenuLabel>
       <DropdownMenuSeparator />
-      <DropdownMenuItem>Settings</DropdownMenuItem>
-      <DropdownMenuItem>Support</DropdownMenuItem>
+      {userMenuItems.map((item) => (
+        <DropdownMenuItem key={item.title}>
+          {item.icon}
+          <span className="ml-2">{item.title}</span>
+        </DropdownMenuItem>
+      ))}
       <DropdownMenuSeparator />
       <DropdownMenuItem>Logout</DropdownMenuItem>
     </DropdownMenuContent>
@@ -100,7 +104,7 @@ const NavItem = ({ to, children, className }) => (
         isActive
           ? "text-foreground"
           : "text-muted-foreground hover:text-foreground",
-        className,
+        className
       )
     }
   >
